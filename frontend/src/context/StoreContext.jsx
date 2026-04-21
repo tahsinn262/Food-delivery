@@ -6,7 +6,7 @@ export const StoreContext = createContext(null);
 export const useStore = () => useContext(StoreContext);
 
 const StoreContextProvider = ({ children }) => {
-  const url = import.meta.env.VITE_API_URL || "http://localhost:4002";
+  const url = import.meta.env.VITE_API_URL || "https://food-delivery-backend-eriq.onrender.com";
 
   const [token, setToken] = useState("");
   const [food_list, setFoodlist] = useState([]); // always array

@@ -17,7 +17,7 @@ import BackToTop from './components/BackToTop/BackToTop';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 const App = () => {
-  const url = "http://localhost:4002";
+  const url = import.meta.env.VITE_API_URL || "https://food-delivery-backend-eriq.onrender.com";
   const location = useLocation();
   
   const [showLogin, setShowLogin] = useState(false);

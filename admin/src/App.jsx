@@ -34,7 +34,7 @@ export const useServices = () => {
 };
 // ──────────────────────────────────────────────────────────────────────────────
 
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:4002';
+const BASE_URL = import.meta.env.VITE_API_URL || 'https://food-delivery-backend-eriq.onrender.com';
 const App = () => {
   const services = useMemo(() => {
     const api = ApiService.getInstance(BASE_URL);
