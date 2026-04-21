@@ -1,21 +1,30 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import './home.css'
-import Header from '../../components/header/header'
-import FeaturedCategories from '../../components/FeaturedCategories/featured-categories'
-import SpecialSections from '../../components/SpecialSections/SpecialSections'
-import OurServices from '../../components/OurServices/OurServices'
-import AppDownload from '../../components/AppDownload/AppDownload'
+
+const Header = lazy(() => import('../../components/header/header'));
+const FeaturedCategories = lazy(() => import('../../components/FeaturedCategories/featured-categories'));
+const SpecialSections = lazy(() => import('../../components/SpecialSections/SpecialSections'));
+const OurServices = lazy(() => import('../../components/OurServices/OurServices'));
+const AppDownload = lazy(() => import('../../components/AppDownload/AppDownload'));
+
+const SectionLoader = () => (
+  <div style={{ minHeight: '20vh', display: 'grid', placeItems: 'center', color: '#666' }}>
+    Loading section...
+  </div>
+);
 
 const Home = () => {
   return (
     <div id="top">
-      <Header/>
-      <FeaturedCategories/>
-      <SpecialSections/>
-      <div id="OurServices">
-        <OurServices/>
-      </div>
-      <AppDownload/>
+      <Suspense fallback={<SectionLoader />}>
+        <Header />
+        <FeaturedCategories />
+        <SpecialSections />
+        <div id="OurServices">
+          <OurServices />
+        </div>
+        <AppDownload />
+      </Suspense>
     </div>
   )
 }
